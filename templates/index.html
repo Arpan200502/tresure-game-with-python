@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Island Game</title>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0'); /* A pirate/sea background */
+            background-size: cover;
+            text-align: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 100px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: gold;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: orange;
+        }
+        .restart {
+            margin-top: 15px;
+            display: inline-block;
+            color: yellow;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🏝️ Treasure Island Game 🏝️</h2>
+        <p>{{ output }}</p>
+
+        {% if "Game Over" not in output and "Win" not in output %}
+        <form method="post">
+            <input type="text" name="user_input" placeholder="Enter your choice" required>
+            <input type="hidden" name="stage" value="{{ stage }}">
+            <button type="submit">Submit</button>
+        </form>
+        {% else %}
+        <a class="restart" href="/">🔄 Restart Game</a>
+        {% endif %}
+    </div>
+
+</body>
+</html>
